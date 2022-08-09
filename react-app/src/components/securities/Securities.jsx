@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
-import "./Books.css";
+import "./Securities.css";
 
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
@@ -15,37 +15,45 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
-import { getBooksByUserId } from "./../../services/BookServices";
+import { getAllSecurities } from "../../services/SecurityServices";
 
 const columns = [
-  { id: "id", label: "ID", minWidth: 50 },
-  { id: "name", label: "Name", minWidth: 100 },
+  { id: "id", label: "ID", minWidth: 10 },
+  { id: "isin", label: "ISIN", minWidth: 20 },
+  { id: "cusip", label: "CUSIP", minWidth: 20 },
+  { id: "issuer", label: "Issuer", minWidth: 20 },
+  { id: "maturityDate", label: "Maturity Date", minWidth: 40 },
+  { id: "coupon", label: "Coupon", minWidth: 10 },
+  { id: "type", label: "Type", minWidth: 10 },
+  { id: "faceValue", label: "Face Value", minWidth: 10 },
+  { id: "status", label: "Status", minWidth: 10 },
   {
     id: "action",
     label: "Action",
-    minWidth: 170,
+    minWidth: 100,
     align: "right",
     format: (value) => value.toFixed(2),
   },
 ];
 
-export const Books = () => {
+export const Securities = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([]);
 
   useLayoutEffect(() => {
-    getBooksByUserId(1).then((res) => {
+    getAllSecurities().then((res) => {
+      console.log(res.data);
       setRows(res.data);
     });
   }, []);
 
   return (
-    <div className="books">
+    <div className="securities">
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand style={{ fontFamily: "sans-serif" }}>
-            Books
+            Securities
           </Navbar.Brand>
         </Container>
       </Navbar>
@@ -119,10 +127,10 @@ export const Books = () => {
                                 }}
                               >
                                 <Link
-                                  to={"/trades"}
-                                  className="books-action-button"
+                                  to={`/securities/details/${row.id}`}
+                                  className="securities-action-button"
                                 >
-                                  Trades
+                                  Details
                                 </Link>
                               </Button>
                             </TableCell>

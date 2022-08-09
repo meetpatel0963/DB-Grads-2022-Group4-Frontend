@@ -1,8 +1,8 @@
-.books {
+.securities-details {
   align-items: center;
 }
 
-.books-action-button {
+.securities-details-action-button {
   text-decoration: none !important;
   color: rgb(38, 33, 33);
   padding: 10px;

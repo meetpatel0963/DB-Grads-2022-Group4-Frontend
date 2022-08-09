@@ -1,8 +1,9 @@
-.books {
+.trades {
   align-items: center;
 }
 
-.books-action-button {
+.trades-action-button,
+.trades-details-action-button {
   text-decoration: none !important;
   color: rgb(38, 33, 33);
   padding: 10px;

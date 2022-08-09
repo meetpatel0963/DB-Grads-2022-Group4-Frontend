@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
-import "./Books.css";
+import "./Trades.css";
 
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
@@ -15,37 +15,42 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
-import { getBooksByUserId } from "./../../services/BookServices";
+import { getTradesByBookId } from "../../services/BookServices";
 
 const columns = [
-  { id: "id", label: "ID", minWidth: 50 },
-  { id: "name", label: "Name", minWidth: 100 },
+  { id: "id", label: "ID", minWidth: 10 },
+  { id: "quantity", label: "Quantity", minWidth: 10 },
+  { id: "status", label: "Status", minWidth: 10 },
+  { id: "price", label: "Price", minWidth: 10 },
+  { id: "buySell", label: "Buy/Sell", minWidth: 10 },
+  { id: "tradeDate", label: "Trade Date", minWidth: 40 },
+  { id: "settlementDate", label: "Settlement Date", minWidth: 40 },
   {
     id: "action",
     label: "Action",
-    minWidth: 170,
+    minWidth: 100,
     align: "right",
     format: (value) => value.toFixed(2),
   },
 ];
 
-export const Books = () => {
+export const Trades = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([]);
 
   useLayoutEffect(() => {
-    getBooksByUserId(1).then((res) => {
+    getTradesByBookId(1).then((res) => {
       setRows(res.data);
     });
   }, []);
 
   return (
-    <div className="books">
+    <div className="trades">
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand style={{ fontFamily: "sans-serif" }}>
-            Books
+            Trades
           </Navbar.Brand>
         </Container>
       </Navbar>
@@ -80,6 +85,7 @@ export const Books = () => {
               {rows
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row) => {
+                  console.log(row);
                   return (
                     <TableRow
                       hover
@@ -102,6 +108,8 @@ export const Books = () => {
                             >
                               {column.format && typeof value === "number"
                                 ? column.format(value)
+                                : column.id.endsWith("Date")
+                                ? value.substring(0, 10)
                                 : value}
                             </TableCell>
                           );
@@ -111,7 +119,7 @@ export const Books = () => {
                               <Button
                                 variant="outlined"
                                 style={{
-                                  maxWidth: "30px",
+                                  maxWidth: "80px",
                                   maxHeight: "30px",
                                   fontFamily: "sans-serif",
                                   fontSize: "14px",
@@ -119,10 +127,28 @@ export const Books = () => {
                                 }}
                               >
                                 <Link
-                                  to={"/trades"}
-                                  className="books-action-button"
+                                  to={`/trades/details/${row.id}`}
+                                  className="trades-details-action-button"
                                 >
-                                  Trades
+                                  Details
+                                </Link>
+                              </Button>
+                              <Button
+                                variant="outlined"
+                                style={{
+                                  maxWidth: "80px",
+                                  maxHeight: "30px",
+                                  fontFamily: "sans-serif",
+                                  fontSize: "14px",
+                                  textTransform: "none",
+                                  marginLeft: "10px",
+                                }}
+                              >
+                                <Link
+                                  to={`/securities/details/${row.security.id}`}
+                                  className="trades-action-button"
+                                >
+                                  Security
                                 </Link>
                               </Button>
                             </TableCell>
