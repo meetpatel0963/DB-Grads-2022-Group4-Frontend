@@ -1,0 +1,25 @@
+.drawer {
+    background: #d8dcd6;
+    width: 0px;
+    display: none;
+}
+
+.opened {
+    width: 240px;
+    display: block;
+    transition: width 0.7s;
+}
+
+.menu{
+    padding : 5px
+}
+
+.menuItem{
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.active{
+    background-color: white;
+}

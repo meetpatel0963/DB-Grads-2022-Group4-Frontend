@@ -1,0 +1,40 @@
+.content{
+    width: 100%;
+}
+
+.bookTitle{
+    font-size: 22px;
+    margin: 18px;
+    margin-top: 12px;
+}
+
+.bookContainer{
+    display: flex;
+    gap: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+    /* overflow-x: scroll; */
+}
+
+.bookItem {
+    width: 200px;
+    background-color: rgb(208, 228, 246);
+}
+
+.container{
+    justify-content: space-between;
+}
+
+.viewAll {
+    font-size: 12px;
+    margin: 12px;
+    margin-top: 22px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.tradesContainer{
+    margin: 12px;
+    margin-bottom: 5px;
+    background-color: rgb(208, 228, 246);
+}
