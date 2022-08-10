@@ -1,0 +1,24 @@
+.signin-container {
+  height: calc(100vh - 150px);
+}
+
+.signin-paper {
+  padding: 40px;
+  height: 400px;
+  width: 500px;
+  margin-top: 70px;
+}
+
+.signin-avatar {
+  background-color: #1bbd7e !important;
+}
+
+.signin-title {
+  font-weight: 800;
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+
+.signin-btn {
+  margin: 20px 0px !important;
+}

@@ -5,6 +5,9 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.0",
     "@mui/styled-engine-sc": "^5.10.0",
     "@mui/styles": "^5.9.3",
@@ -16,9 +19,12 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^17.0.2",
+    "react-fontawesome": "^1.7.1",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
     "react-testing-library": "^8.0.1",
+    "react-tooltip": "^4.2.21",
     "sass": "^1.35.2",
     "styled-components": "^5.3.5",
     "web-vitals": "^1.1.2"

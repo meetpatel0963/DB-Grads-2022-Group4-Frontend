@@ -1,9 +1,44 @@
 .securities-details {
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
 
 .securities-details-action-button {
   text-decoration: none !important;
   color: rgb(38, 33, 33);
   padding: 10px;
+}
+
+.security-details-update-container {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+}
+
+.security-details-update-left,
+.security-details-update-right {
+  width: 200px;
+}
+
+.security-details-isin,
+.security-details-cusip,
+.security-details-issuer,
+.security-details-maturity-date,
+.security-details-coupon,
+.security-details-type,
+.security-details-face-value,
+.security-details-status {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 10px 0px 0px;
+}
+
+.security-details-update-form {
+  width: 600px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  padding: 20px 50px;
 }

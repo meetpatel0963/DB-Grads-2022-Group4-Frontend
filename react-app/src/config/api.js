@@ -6,10 +6,21 @@ export const BOOKS = {
 };
 
 export const TRADES = {
+  GET_ALL_TRADES: "/trades",
   GET_TRADES_BY_ID: "/trades",
+  UPDATE_TRADE: "/trades",
+  ADD_TRADE: "/trades",
 };
 
 export const SECURITIES = {
   GET_ALL_SECURITIES: "/security",
   GET_SECURITY_BY_ID: "/security",
+  ADD_SECURITY: "/security",
+  UPDATE_SECURITY: "/security",
+  DELETE_SECURITY: "/security",
+};
+
+export const USERS = {
+  SIGNUP: "/auth/signup",
+  SIGNIN: "/auth/signin",
 };

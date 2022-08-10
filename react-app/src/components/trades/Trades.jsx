@@ -1,10 +1,13 @@
 import React, { useState, useLayoutEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 import "./Trades.css";
 
+import { CgAddR } from "react-icons/cg";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -12,9 +15,9 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
+import { getAllTrades } from "../../services/TradeServices";
 import { getTradesByBookId } from "../../services/BookServices";
 
 const columns = [
@@ -38,19 +41,39 @@ export const Trades = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([]);
+  const { bookId } = useParams();
 
   useLayoutEffect(() => {
-    getTradesByBookId(1).then((res) => {
-      setRows(res.data);
-    });
+    if (bookId !== null && bookId !== undefined) {
+      getTradesByBookId(bookId).then((res) => {
+        setRows(res.data);
+      });
+    } else {
+      getAllTrades().then((res) => {
+        setRows(res.data);
+      });
+    }
   }, []);
 
   return (
     <div className="trades">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand style={{ fontFamily: "sans-serif" }}>
+          <Navbar.Brand
+            style={{
+              fontFamily: "sans-serif",
+              color: "#1976d2",
+              fontWeight: "bold",
+            }}
+          >
             Trades
+          </Navbar.Brand>
+          <Navbar.Brand>
+            <Link to={"/trades/add"}>
+              <Button>
+                <CgAddR size={30} />
+              </Button>
+            </Link>
           </Navbar.Brand>
         </Container>
       </Navbar>

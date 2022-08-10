@@ -1,0 +1,33 @@
+.add-trade-form {
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  padding: 20px 50px;
+  display: flex;
+  margin-top: 20px;
+}
+
+.add-trade-form-container {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+
+.add-trade-form-left,
+.add-trade-form-right {
+  width: 350px;
+}
+
+.add-trade-quantity,
+.add-trade-status,
+.add-trade-price,
+.add-trade-buy-sell,
+.add-trade-trade-date,
+.add-trade-settlement-date,
+.add-trade-book-id,
+.add-trade-security-id,
+.add-trade-counterparty-id {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 10px 0px 0px;
+}

@@ -44,7 +44,13 @@ export const Books = () => {
     <div className="books">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand style={{ fontFamily: "sans-serif" }}>
+          <Navbar.Brand
+            style={{
+              fontFamily: "sans-serif",
+              color: "#1976d2",
+              fontWeight: "bold",
+            }}
+          >
             Books
           </Navbar.Brand>
         </Container>
@@ -119,7 +125,7 @@ export const Books = () => {
                                 }}
                               >
                                 <Link
-                                  to={"/trades"}
+                                  to={`/trades/${row.id}`}
                                   className="books-action-button"
                                 >
                                   Trades

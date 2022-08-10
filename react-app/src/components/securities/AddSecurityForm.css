@@ -1,0 +1,32 @@
+.add-security-form {
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  padding: 20px 50px;
+  display: flex;
+  margin-top: 20px;
+}
+
+.add-secuirty-form-container {
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+
+.add-security-form-left,
+.add-security-form-right {
+  width: 350px;
+}
+
+.add-security-isin,
+.add-security-cusip,
+.add-security-issuer,
+.add-security-maturity-date,
+.add-security-coupon,
+.add-security-type,
+.add-security-face-value,
+.add-security-status {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 10px 0px 0px;
+}

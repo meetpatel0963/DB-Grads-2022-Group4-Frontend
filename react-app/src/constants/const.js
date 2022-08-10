@@ -1,4 +1,10 @@
-export const SIDEBAR_MENU = ["Profile", "Dashboard", "Books", "Securities"];
+export const SIDEBAR_MENU = [
+  "Profile",
+  "Dashboard",
+  "Books",
+  "Trades",
+  "Securities",
+];
 
 export const TRADE_KEYS = {
   id: "ID",

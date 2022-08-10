@@ -7,6 +7,10 @@ import { TradeDetails } from "./components/trades/TradeDetails";
 import { Securities } from "./components/securities/Securities";
 import { Sidebar } from "./components/sidebar/SideBar";
 import { SecurityDetails } from "./components/securities/SecurityDetails";
+import SignUp from "./components/signUp/SignUp";
+import SignIn from "./components/signIn/SignIn";
+import AddSecurityForm from "./components/securities/AddSecurityForm";
+import AddTradeForm from "./components/trades/AddTradeForm";
 
 const App = () => {
   return (
@@ -21,13 +25,18 @@ const App = () => {
               path="/trades/details/:tradeId"
               element={<TradeDetails />}
             />
+            <Route exact path="/trades/add" element={<AddTradeForm />} />
+            <Route exact path="/trades/:bookId" element={<Trades />} />
             <Route exact path="/trades" element={<Trades />} />
             <Route
               exact
               path="/securities/details/:securityId"
               element={<SecurityDetails />}
             />
+            <Route exact path="/securities/add" element={<AddSecurityForm />} />
             <Route exact path="/securities" element={<Securities />} />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/signin" element={<SignIn />} />
           </Routes>
         </div>
       </Router>
